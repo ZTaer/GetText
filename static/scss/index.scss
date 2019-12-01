@@ -1,0 +1,234 @@
+@import "./_OO7BTS.v2.1";
+
+$liner-y-r: linear-gradient(to right bottom, #FBDB89, #F48982);
+body{
+    @include font-style();
+    background-image: $liner-y-r ;
+    min-height: 100vh;
+
+    $xc:#f8f8f8; 
+    $bxc:#F48982;
+    ::selection {
+        background:$bxc; 
+        color:$xc;
+    }
+    
+    ::-moz-selection {
+        background:$bxc; 
+        color:$xc;
+    }
+    
+    ::-webkit-selection {
+        background:$bxc; 
+        color:$xc;
+    }
+
+}
+input{outline:none !important;}
+
+/************ 全局 *****/
+/** mainContent **/
+#mainContent{
+    min-height:90vh;
+    .ctl{
+        min-height:1280px;
+        background: #fff;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 2rem 6rem 0.5rem rgba(101, 90, 86, 0.2);
+    }
+
+    // 控制栏
+    #control{
+        background: #F9F5F3;
+        @include display-flex();
+        @include xy-content(center,center);
+        .col-12{
+            h1{
+                @include font-style(2rem,#F48982, $ls:10px);
+                font-weight: lighter;
+            }
+        }
+        #search{
+            button{
+                background:$liner-y-r ;
+                color:#fff;
+            }
+            .form-control{
+                height:60px;
+                border:0;
+            }
+            $cir:30px;
+
+            @include placeholder-color( 1rem, #ccc, 3px );
+            .topic{
+                border-top-left-radius:$cir ;
+                border-bottom-left-radius:$cir ;
+                width:55% !important;
+                text-indent: 1rem;
+                @include font-style();
+            }
+            .len{
+                width:20% !important;
+            }
+            .input-group-append{
+                width:25% !important;
+                .btn{
+                    width:100%;
+                    border:0;
+                    border-top-right-radius:$cir ;
+                    border-bottom-right-radius:$cir ;
+                    @include font-style( 1rem,#fff,4px );
+                    outline:none;
+                }
+            }
+
+
+        }    
+
+    }
+    
+    // 内容栏
+    #content{
+        h2{
+            width:85%;
+            margin:0px auto;
+            @include font-style( 3rem, #333, bold,5px );
+            font-family: 'Liu Jian Mao Cao', cursive;
+        }
+        p{
+            @include font-zh(  $fz:1rem ,$c:#968B87,$ls:5px, $lh:33px );
+            font-family: 'ZCOOL KuaiLe', cursive;
+            font-weight: lighter;
+        }
+    }
+    
+}
+
+#menu{
+    position: fixed;
+    right:23%;
+    bottom:7%;
+    .circle{
+        opacity: 0.9;
+        border: 0px solid #F9F5F3;
+        color:#fff;
+        $wh:50px;
+        width:$wh;
+        height:$wh;
+        border-radius: 50%;
+        background-image: $liner-y-r;
+        @include display-flex();
+        @include xy-items(center,center);
+        box-shadow: 0 0.5rem 1rem 0.2rem rgba(101, 90, 86, 0.2);
+    }
+    @media (max-width:1450px) {
+        right:12%;
+    }
+
+    @media (max-width:765px) {
+        right:12%;
+        bottom:5%;
+        .circle{
+            opacity: 0.95;
+            $wh:40px;
+            width:$wh;
+            height:$wh;
+            border-radius: 50%;
+            background-image: $liner-y-r;
+            @include display-flex();
+            @include xy-items(center,center);
+        }
+    }
+}
+
+#end{
+    margin-top:-20px;
+    .container{
+        @include display-flex();
+        @include xy-items(center,center);
+    }
+    a{
+        display: block;
+        margin:0px 0.2rem;
+        color:#fff;
+        @include img-transition(0.3);
+        &:hover{
+            color:#F48982;
+        }
+        font-size: 13px;
+    }
+}
+
+/************ PC *****/
+/************ M *****/
+@media( max-width:765px ){
+
+    #mainContent{
+        .ctl{
+            min-height:1000px;
+        }
+        #control{
+            .col-12{
+                h1{
+                    @include font-style(1.5rem,#F48982, $ls:10px);
+                    @include font-nowrap();
+                }
+            }
+            #search{
+                .form-control{
+                    height:45px;
+                    border:0;
+                    font-size: 0.9rem;
+                }
+                $cir:5px;
+    
+                @include placeholder-color( 0.9rem, #ccc, 2px );
+                .topic{
+                    border-top-left-radius:$cir ;
+                    border-bottom-left-radius:$cir ;
+                    text-indent: 0rem;
+                }
+                .len{
+                    width:20% !important;
+                }
+                .input-group-append{
+                    width:100% !important;
+                    .btn{
+                        width:100%;
+                        height:40px;
+                        border:0;
+                        border-radius:5px ;
+                        @include font-style( 10px,#fff,1px );
+                    }
+                }
+    
+    
+            }    
+    
+        }
+        // 内容栏
+        #content{
+            h2{
+                width:95%;
+                margin:0px auto;
+                @include font-style( 2rem, #333, bold,5px );
+            }
+            p{
+                @include font-zh(  $fz:1rem ,$c:#968B87,$ls:4px );
+                font-family: 'ZCOOL KuaiLe', cursive;
+            }
+        }
+        
+    }
+
+        
+    #end{
+        margin-top:-20px;
+        a{
+            font-size: 12px;
+        }
+    }
+
+}
+
